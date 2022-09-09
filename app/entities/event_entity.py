@@ -5,7 +5,6 @@ class EventEntity(BaseEntity):
     table_name = 'events'
 
     fields = [
-        'id',
         'ts',
         'review_id',
         'intact',

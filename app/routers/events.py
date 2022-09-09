@@ -23,4 +23,9 @@ class EventModel(BaseModel):
 
 @events_router.get("/", response_model=List[EventModel])
 def get_all():
-    return EventEntity().find_all()
+    return EventEntity().find_all()@events_router.get("/", response_model=List[EventModel])
+
+
+@events_router.post("/", response_model=EventModel)
+def create():
+    return EventEntity().create()

@@ -31,14 +31,15 @@ class BaseEntity:
 
         return self._executeQuery(query)
 
+    def check_field_exists(self, field):
+        if field not in self.fields:
+            raise Exception('Field ' + field + 'is not in the field list')
+
     def create(self, payload: dict):
         map(
-            lambda item:
-        if item in self.fields:
-            return,
-        payload.keys()
-
-    )
+            self.check_field_exists,
+            payload.keys()
+        )
 
         query = 'INSERT INTO ' \
                 + self.get_relation_name() \

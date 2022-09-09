@@ -6,7 +6,6 @@ class ReviewEntity(BaseEntity):
     table_name = 'reviews'
 
     fields = [
-        'id',
         'latitude',
         'longitude',
         'ts',
