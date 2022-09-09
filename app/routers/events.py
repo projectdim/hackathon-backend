@@ -2,6 +2,7 @@ from fastapi import APIRouter
 from typing import List
 from pydantic import BaseModel
 from app.entities.event_entity import EventEntity
+from app.services.events_service import EventsService
 
 events_router = APIRouter(prefix="/events")
 
@@ -28,4 +29,4 @@ def get_all():
 
 @events_router.post("/", response_model=EventModel)
 def create():
-    return EventEntity().create()
+    return EventsService().create_event()

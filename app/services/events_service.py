@@ -6,6 +6,7 @@ class EventsService:
         return EventEntity().create({
             'ts': "'2022-01-01 00:00:00'",
             'review_id': 1,
+            'qwe': 1,
             'intact': 1,
             'stable_electricity': 1,
             'accessible': 1,
