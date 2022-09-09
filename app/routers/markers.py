@@ -1,7 +1,7 @@
 from typing import Union, List
 from fastapi import APIRouter
 from pydantic import BaseModel
-
+from ..entities.event_entity import EventEntity
 router = APIRouter(prefix="/markers")
 
 
@@ -13,6 +13,8 @@ class Marker(BaseModel):
 
 @router.get("/", response_model=List[Marker])
 def get_all_markers():
+    data = EventEntity().find_by_id(10)
+    print(data)
     return [
         {
             "id": 2000,
