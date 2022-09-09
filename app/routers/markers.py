@@ -21,8 +21,8 @@ class Pin(BaseModel):
 
 @router.get("/", response_model=List[Pin])
 def get_all_markers():
-    data = {'data': {'statuses': "'active'"}}
-    template = open(f"app/sql_templates/select_markers", 'r').read()
+    data = {'data': {'statuses': "('active')"}}
+    template = open(f"app/sql_templates/select_markers.sql", 'r').read()
     query = Template(template).render(data)
     markers_data = Query().select(query)
     return transform_data(markers_data)

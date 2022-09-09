@@ -4,24 +4,21 @@ import psycopg2.extras
 
 
 class Database:
-    schema = schema
     conn = conn
 
     def getCursor(self):
         return self.conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
-    def createQueryBuilder(self, table):
-        return Query(table)
+    def createQueryBuilder(self):
+        return Query()
 
 
 class Query:
-    table = None
     cur = None
     conn = None
 
-    def __init__(self, cur, table):
-        self.table = table
-        self.cur = cur
+    def __init__(self):
+        self.cur = Database().getCursor()
         self.conn = conn
 
     def select(self, query):
@@ -31,7 +28,3 @@ class Query:
     def modify(self, query):
         self.cur.execute(query)
         return self.conn.commit()
-
-    def find_by_id(self, id):
-        self.cur.execute('SELECT * FROM ' + self.schema + '.' + self.table + ' WHERE id = ' + str(id))
-        return self.cur.fetchall()
