@@ -7,7 +7,7 @@ class EventEntity(BaseEntity):
     fields = [
         'id',
         'ts',
-        'review_id',
+        'marker_id',
         'intact',
         'stable_electricity',
         'accessible',

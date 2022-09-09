@@ -17,14 +17,20 @@ class Database:
 class Query:
     table = None
     cur = None
+    conn = None
 
     def __init__(self, cur, table):
         self.table = table
         self.cur = cur
+        self.conn = conn
 
-    def execute(self, query):
+    def select(self, query):
         self.cur.execute(query)
         return self.cur.fetchall()
+
+    def modify(self, query):
+        self.cur.execute(query)
+        return self.conn.commit()
 
     def find_by_id(self, id):
         self.cur.execute('SELECT * FROM ' + self.schema + '.' + self.table + ' WHERE id = ' + str(id))
