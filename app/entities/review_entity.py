@@ -1,5 +1,5 @@
 from .base_entity import BaseEntity
-from images_entity import ImageEntity
+from .images_entity import ImageEntity
 
 
 class ReviewEntity(BaseEntity):
@@ -22,8 +22,13 @@ class ReviewEntity(BaseEntity):
 
     def createReview(self, payload, images):
         map(
-            lambda image: ImageEntity.createImage(image['review_id'], image['image_ref']),
+            lambda image: ImageEntity().createImage(image['review_id'], image['image_ref']),
             images
         )
 
         return self.create(payload)
+
+    def getGlanceOnMarkers(self, limit=100) -> []:
+        return self._executeQuery(
+            'SELECT id,latitude, longitude FROM ' + self.get_relation_name() + ' ORDER BY id DESC LIMIT ' + str(limit)
+        )

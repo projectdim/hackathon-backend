@@ -32,6 +32,14 @@ class BaseEntity:
         return self._executeQuery(query)
 
     def create(self, payload: dict):
+        map(
+            lambda item:
+        if item in self.fields:
+            return,
+        payload.keys()
+
+    )
+
         query = 'INSERT INTO ' \
                 + self.get_relation_name() \
                 + build_field_set(payload.keys()) \
@@ -42,7 +50,6 @@ class BaseEntity:
 
     def get_relation_name(self):
         return self.database.schema + '.' + self.table_name
-
 
     def _executeQuery(self, query):
         print('>>> executing: ' + query)
