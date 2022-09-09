@@ -1,4 +1,6 @@
 from .connection import conn
+import psycopg2
+import psycopg2.extras
 
 
 class Database:
@@ -9,7 +11,7 @@ class Database:
         self.table = table
 
     def getCursor(self):
-        return self.conn.cursor()
+        return self.conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
 
     # def execute(self, query):
     #     self.cur.execute(query)
