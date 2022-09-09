@@ -1,4 +1,3 @@
-from typing import Union, List
 from fastapi import APIRouter
 from pydantic import BaseModel
 from ..entities.event_entity import EventEntity

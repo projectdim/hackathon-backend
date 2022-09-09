@@ -3,7 +3,7 @@ from ..entities.event_entity import EventEntity
 
 class EventsService:
     def create_event(self):
-        data = EventEntity().create({
+        return EventEntity().create({
             'ts': "'2022-01-01 00:00:00'",
             'review_id': 1,
             'intact': 1,
@@ -16,4 +16,3 @@ class EventsService:
             'status': 1,
             'type': 1,
         })
-        print(data)

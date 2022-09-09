@@ -15,8 +15,7 @@ def build_field_set(fields: list[any]):
 
 class BaseEntity:
     table_name = ''
-    schema = 'dim_db'
-    database = Database('')
+    database = Database()
     fields = []
 
     def find_by_id(self, id):
@@ -39,7 +38,8 @@ class BaseEntity:
         return self._executeUpdate(query)
 
     def get_relation_name(self):
-        return self.schema + '.' + self.table_name
+        return self.database.schema + '.' + self.table_name
+
 
     def _executeQuery(self, query):
         print('>>> executing: ' + query)

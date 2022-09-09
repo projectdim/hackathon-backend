@@ -24,4 +24,3 @@ def get_all_markers():
             "lng": 221324
         },
     ]
-
