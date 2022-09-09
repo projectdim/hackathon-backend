@@ -1,7 +1,6 @@
-# todo make env dependent config
-
 from config.local import config
 import psycopg2
+
 schema = config['database']
 
 try:

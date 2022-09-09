@@ -1,4 +1,4 @@
-from ..entities.event_entity import EventEntity
+from app.entities.event_entity import EventEntity
 
 
 class EventsService:
