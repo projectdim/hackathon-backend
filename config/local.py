@@ -1,3 +1,5 @@
+# todo make env dependent config
+
 config = {
     'database': 'dim_db',
     'user': 'postgres',

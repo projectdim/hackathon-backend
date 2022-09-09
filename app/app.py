@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
 
-from app.routers.markers import router
+from app.routers.markers import markers_router
 from app.routers.events import events_router
 app = FastAPI()
 
@@ -14,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(router)
+app.include_router(markers_router)
 app.include_router(events_router)
 
 app.mount("/static", StaticFiles(directory="pictures"), name="static")

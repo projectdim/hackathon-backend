@@ -23,8 +23,11 @@ class BaseEntity:
 
         return self._executeQuery(query)
 
-    def find_all(self):
+    def find_all(self, limit=100):
         query = 'SELECT * FROM ' + self.get_relation_name()
+
+        if limit:
+            query = query + ' LIMIT ' + limit
 
         return self._executeQuery(query)
 

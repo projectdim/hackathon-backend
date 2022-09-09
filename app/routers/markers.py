@@ -3,10 +3,11 @@ from typing import List
 
 from fastapi import APIRouter
 from pydantic import BaseModel
+from app.entities.review_entity import ReviewEntity
 
 from app.routers.schemas import Marker, MarkerCreate
 
-router = APIRouter(prefix="/markers")
+markers_router = APIRouter(prefix="/markers")
 
 
 class Pin(BaseModel):
@@ -15,15 +16,16 @@ class Pin(BaseModel):
     lng: float
 
 
-@router.get("/", response_model=List[Pin])
+@markers_router.get("/", response_model=List[Pin])
 def get_all_markers():
+    # return ReviewEntity.find_all()
     return [
         { "id": 2000, "lat": 50.19621, "lng": 23.88737 },
         { "id": 2500, "lat": 49.91406, "lng": 27.30412 },
     ]
 
 
-@router.get(
+@markers_router.get(
     "/{marker_id}",
     response_model=Marker
 )
@@ -58,6 +60,6 @@ def marker_detail(marker_id: str):
     }
 
 
-@router.post("/", response_model=MarkerCreate)
+@markers_router.post("/", response_model=MarkerCreate)
 def create_item(item: MarkerCreate):
     return item
