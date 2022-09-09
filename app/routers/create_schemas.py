@@ -1,8 +1,7 @@
 import datetime
 from typing import Literal
-from pydantic import Field
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class Address(BaseModel):
@@ -17,20 +16,22 @@ class PhotoCreate(BaseModel):
 
 
 class StatusCreate(BaseModel):
-    type: Literal[
-            'building',
-            'electricity',
-            'water',
-            'roads',
-            'fuel'
-        ]
-    status_key: Literal[
-            'intact',
-            'stable',
-            'accessible',
-            'closed',
-            'open'
-        ] = Field(alias='statusKey')
+    type: str
+    # type: Literal[
+    #         'building',
+    #         'electricity',
+    #         'water',
+    #         'roads',
+    #         'fuel'
+    #     ]
+    status_key: str = Field(alias="statusKey")
+    # status_key: Literal[
+    #         'intact',
+    #         'stable',
+    #         'accessible',
+    #         'closed',
+    #         'open'
+    #     ] = Field(alias='statusKey')
 
     safety_level: float = Field(alias='safetyLevel', ge=0, le=10)
     distance: str
