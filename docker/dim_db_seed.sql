@@ -58,14 +58,20 @@ CREATE TABLE dim_db.events (
 	comment TEXT,
 	status VARCHAR(32),
 	type VARCHAR(10),
-	FOREIGN KEY (marker_id) REFERENCES markers (id)
+	FOREIGN KEY (marker_id) REFERENCES dim_db.markers (id)
 );
 
 CREATE TABLE dim_db.images (
+    id SERIAL PRIMARY KEY,
 	marker_id INTEGER NOT NULL,
 	image_ref VARCHAR(500) NOT NULL,
 	UNIQUE(image_ref),
-	FOREIGN KEY (marker_id) REFERENCES markers (id)
+	FOREIGN KEY (marker_id) REFERENCES dim_db.markers (id)
 );
 
-
+CREATE TABLE dim_db.contacts(
+    id SERIAL PRIMARY KEY,
+    label VARCHAR(500) NOT NULL,
+    phone VARCHAR(32) NOT NULL,
+    email VARCHAR(127) NOT NULL
+);

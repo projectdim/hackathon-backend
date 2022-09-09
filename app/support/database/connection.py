@@ -2,7 +2,6 @@ from config.local import config
 import psycopg2
 
 schema = config['database']
-
 try:
     # conn = psycopg2.connect("dbname='dim_db' user='postgres' host='db' password='password'")
     print(config)
