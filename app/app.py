@@ -5,14 +5,12 @@ from app.routers.markers import router
 
 app = FastAPI()
 
-app.include_router(
-    router,
-)
+app.include_router(router)
 app.mount("/static", StaticFiles(directory="pictures"), name="static")
+
 
 @app.get("/")
 def hello():
     return {
         'msg': "abc"
     }
-
