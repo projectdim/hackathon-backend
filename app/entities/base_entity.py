@@ -14,9 +14,10 @@ class BaseEntity:
 
     def create(self, payload: dict):
         query = 'INSERT INTO ' + self.get_relation_name() + self.build_field_set(
-            payload.keys()) + ' VALUES ' + self.build_field_set(payload.items())
+            payload.keys()) + ' VALUES ' + self.build_field_set(payload.values())
 
-        return self._execute(query)
+        self.database.getCursor().execute(query)
+        return self.database.conn.commit()
 
     def get_relation_name(self):
         return self.schema + '.' + self.table_name
@@ -29,7 +30,12 @@ class BaseEntity:
 
         return cur.fetchall()
 
+    def toString(self, item):
+        return str(item)
+
     def build_field_set(self, fields: list[str]):
+        fields = map(self.toString, fields)
+        print(fields)
         conc_fields = ', '.join(fields)
 
         return '(' + conc_fields + ')'
