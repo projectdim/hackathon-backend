@@ -1,3 +1,4 @@
+import datetime
 from typing import List
 
 from fastapi import APIRouter
@@ -51,5 +52,14 @@ def marker_detail(marker_id: str):
             "id": "b",
             "label": "an other person",
             "url": "http://localhost:8000/static/test_2.jpg"
+        }],
+        "statuses": [{
+            "id": "whatever",
+            "type": "building",
+            "statusKey": "stable",
+            "safetyLevel": 3,
+            "distance": "whatever",
+            "modifiedDate": datetime.datetime.utcnow(),
+            "description": "b"
         }]
     }
