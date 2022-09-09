@@ -1,2 +1,2 @@
 INSERT INTO events(timestamp, review_id, city, street, zipcode, intact, stable_electricity, accessible, stable_water, gas_station, medical_facilities, comment, status, type)
-VALUES ({{timestamp}}, {{review_id}}, {{city}}, {{street}}, {{zipcode}}, {{intact}}, {{stable_electricity}}, {{accessible}}, {{stable_water}}, {{gas_station}}, {{medical_facilities}}, {{comment}}, {{status}}, {{type}});
+VALUES ({{data.timestamp}}, {{data.review_id}}, {{data.city}}, {{data.street}}, {{data.zipcode}}, {{data.intact}}, {{data.stable_electricity}}, {{data.accessible}}, {{data.stable_water}}, {{data.gas_station}}, {{data.medical_facilities}}, {{data.comment}}, {{data.status}}, {{data.type}});

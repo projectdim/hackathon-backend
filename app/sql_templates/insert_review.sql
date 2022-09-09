@@ -1,2 +1,2 @@
 INSERT INTO reviews(timestamp, latitude, longitude, city, street, zipcode, intact, stable_electricity, accessible, stable_water, gas_station, medical_facilities, comment, status)
-VALUES ({{timestamp}}, {{latitude}}, {{longitude}}, {{city}}, {{street}}, {{zipcode}}, {{intact}}, {{stable_electricity}}, {{accessible}}, {{stable_water}}, {{gas_station}}, {{medical_facilities}}, {{comment}}, {{status}});
+VALUES ({{data.timestamp}}, {{data.latitude}}, {{data.longitude}}, {{data.city}}, {{data.street}}, {{data.zipcode}}, {{data.intact}}, {{data.stable_electricity}}, {{data.accessible}}, {{data.stable_water}}, {{data.gas_station}}, {{data.medical_facilities}}, {{data.comment}}, {{data.status}});
