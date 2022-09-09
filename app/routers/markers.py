@@ -1,9 +1,27 @@
+from typing import Union, List
+
 from fastapi import APIRouter
+from pydantic import BaseModel
 
 router = APIRouter(prefix="/markers")
 
+class Item(BaseModel):
+    name: str
+    description: Union[str, None] = None
+    price: float
+    tax: Union[float, None] = None
+    tags: List[str] = []
 
-@router.get()
+
+@router.get("/items/", response_model=Item)
+async def create_item():
+    return {
+        "name": "dsfjsdf",
+        "price": 4263173,
+    }
+
+
+@router.get("/")
 def get_all_markers():
     return [
         {
