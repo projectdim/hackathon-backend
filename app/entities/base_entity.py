@@ -7,7 +7,14 @@ class BaseEntity:
     database = Database('')
 
     def find_by_id(self, id):
+        query = 'SELECT * FROM ' + self.schema + '.' + self.table_name + ' WHERE id = ' + str(id)
+
+        return self._execute(query)
+
+    def _execute(self, query):
+        print('>>> executing:')
+        print(query)
         cur = self.database.getCursor()
-        cur.execute('SELECT * FROM ' + self.schema + '.' + self.table_name + ' WHERE id = ' + str(id))
+        cur.execute(query)
 
         return cur.fetchall()

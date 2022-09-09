@@ -1,5 +1,5 @@
 from .base_entity import BaseEntity
 
 
-class Event(BaseEntity):
+class EventEntity(BaseEntity):
     table_name = 'events'
