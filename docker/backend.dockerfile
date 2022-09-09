@@ -1,15 +1,12 @@
-FROM python:3.9
-
+FROM python:3.9-slim
 WORKDIR /app
+
 COPY requirements.txt requirements.txt
-COPY runner.sh runner.sh
-RUN pip3 install -r requirements.txt
+RUN pip install -r requirements.txt
+
+COPY . .
 
 EXPOSE 5000
-
-# RUN python -m venv venv
-# RUN source venv/bin/activate
-
 CMD  "./runner.sh"
 
 

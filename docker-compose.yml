@@ -1,9 +1,11 @@
-version: '3'
+version: '3.8'
 
 services:
   backend_app:
-    image: dim/backend:latest
+    build:
+      context: .
+      dockerfile: ./docker/backend.dockerfile
     ports:
-      - '5001:5000'
+      - '5000:5000'
     volumes:
       - ./:/app
