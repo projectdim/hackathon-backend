@@ -1,11 +1,16 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-
+from .support.db.connection import createQueryBuilder
 from app.routers.markers import router
 
 app = FastAPI()
 
 app.mount("/", router)
+
+query = createQueryBuilder('events')
+print(query.find_by_id(10))
+
+
 
 @app.get("/")
 def hello():
