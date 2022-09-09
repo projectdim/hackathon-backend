@@ -1,6 +1,6 @@
 CREATE SCHEMA dim_db;
 
-CREATE TABLE dim_db.reviews (
+CREATE TABLE dim_db.markers (
 	id SERIAL PRIMARY KEY,
 	ts TIMESTAMP NOT NULL,
 	latitude NUMERIC(7) NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE dim_db.reviews (
 CREATE TABLE dim_db.events (
 	id SERIAL PRIMARY KEY,
 	ts TIMESTAMP NOT NULL,
-	review_id INTEGER,
+	marker_id INTEGER,
 	city VARCHAR(32),
 	street VARCHAR(128),
 	zipcode VARCHAR(6),
@@ -58,14 +58,14 @@ CREATE TABLE dim_db.events (
 	comment TEXT,
 	status VARCHAR(32),
 	type VARCHAR(10),
-	FOREIGN KEY (review_id) REFERENCES reviews (id)
+	FOREIGN KEY (marker_id) REFERENCES markers (id)
 );
 
 CREATE TABLE dim_db.images (
-	review_id INTEGER NOT NULL,
+	marker_id INTEGER NOT NULL,
 	image_ref VARCHAR(500) NOT NULL,
 	UNIQUE(image_ref),
-	FOREIGN KEY (review_id) REFERENCES reviews (id)
+	FOREIGN KEY (marker_id) REFERENCES markers (id)
 );
 
 
