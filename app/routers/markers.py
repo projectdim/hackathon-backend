@@ -1,8 +1,12 @@
 import datetime
 from typing import List
+from jinja2 import Template
 
 from fastapi import APIRouter
 from pydantic import BaseModel
+
+from app.support.database.db import Query
+from app.support.database.transformation import transform_data
 
 from app.routers.schemas import Marker, MarkerCreate
 
@@ -17,10 +21,11 @@ class Pin(BaseModel):
 
 @router.get("/", response_model=List[Pin])
 def get_all_markers():
-    return [
-        { "id": 2000, "lat": 50.19621, "lng": 23.88737 },
-        { "id": 2500, "lat": 49.91406, "lng": 27.30412 },
-    ]
+    data = {'data': {'statuses': "'active'"}}
+    template = open(f"app/sql_templates/select_markers", 'r').read()
+    query = Template(template).render(data)
+    markers_data = Query().select(query)
+    return transform_data(markers_data)
 
 
 @router.get(
