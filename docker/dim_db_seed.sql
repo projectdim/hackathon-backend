@@ -69,4 +69,11 @@ CREATE TABLE dim_db.images (
 	FOREIGN KEY (marker_id) REFERENCES reviews (id)
 );
 
+CREATE TABLE dim_db.contacts (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    label VARCHAR(255) NOT NULL,
+    phone VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL
+);
+
 

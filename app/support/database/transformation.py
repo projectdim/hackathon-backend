@@ -38,11 +38,11 @@ def transform_status(record, status_type):
     }
 
 
-def transform_marker(record):
+def transform_marker(record, photo_records):
     return {
         'id': record['id'],
         'address': transform_address(record),
-        'photos': [],
+        'photos': [transform_photo(ph)for ph in photo_records],
         'statuses': [transform_status(record, status_type)
                      for status_type in ['building', 'electricity', 'water', 'road', 'fuel', 'medical_facilities']]
     }
