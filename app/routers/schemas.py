@@ -1,5 +1,6 @@
 import datetime
 from typing import Literal
+from pydantic import Field
 
 from pydantic import BaseModel
 
@@ -25,17 +26,17 @@ class Status(BaseModel):
             'roads',
             'fuel'
         ]
-    statusKey: Literal[
+    status_key: Literal[
             'intact',
             'stable',
             'accessible',
             'closed',
             'open'
-        ]
+        ] = Field(alias='statusKey')
 
-    safetyLevel: float
+    safety_level: float = Field(alias='safetyLevel', ge=0, le=0)
     distance: str
-    modifiedDate: datetime.datetime
+    modified_date: datetime.datetime = Field(alias='modifiedDate')
     description: str
 
 
