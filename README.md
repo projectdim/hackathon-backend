@@ -3,10 +3,10 @@
 ## Initialize
 run:
 - `python -m venv venv`
-- `./venv/bin/activate`
+- `source venv/bin/activate`
 - `pip install -r requirements.txt`
 
 ## Start server
-- `./runner`
+- `./runner.sh`
 
 Server should be available at http://localhost:5000
