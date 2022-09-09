@@ -1,20 +1,14 @@
 # backend
 
-## Initialize
-run:
-- `python -m venv venv`
-- `source venv/bin/activate`
-- `pip install -r requirements.txt`
+## Start
 
-## Start server
-- `./runner.sh`
+`docker-compose up`
 
-Server should be available at http://localhost:5000
+Will run under:
 
-### windows
-run:
-- `python -m venv venv`
-- `venv\Scripts\activate`
--`pip install -r requirements.txt`
-### start server
-- python -m app.main
+http://localhost:5000
+
+
+Openapi is available at url
+
+http://localhost:5000/docs
