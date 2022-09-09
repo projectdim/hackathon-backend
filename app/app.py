@@ -13,5 +13,3 @@ def hello():
     return {
         'msg': "abc"
     }
-
-

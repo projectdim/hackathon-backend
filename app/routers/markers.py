@@ -5,15 +5,23 @@ from app.routers.schemas import Marker
 router = APIRouter(prefix="/markers")
 
 
-@router.get("/")
+class Marker(BaseModel):
+    id: str
+    lat: float
+    lng: float
+
+
+@router.get("/", response_model=List[Marker])
 def get_all_markers():
     return [
         {
-            "longitude": 2000,
-            "latitude": 3000
+            "id": 2000,
+            "lat": 3000,
+            "lng": 221324
         }, {
-            "longitude": 2500,
-            "latitude": 3400
+            "id": 2500,
+            "lat": 3400,
+            "lng": 221324
         },
     ]
 
