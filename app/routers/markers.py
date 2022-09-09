@@ -1,4 +1,3 @@
-import datetime
 from typing import List
 
 from fastapi import APIRouter
@@ -20,8 +19,8 @@ class Pin(BaseModel):
 def get_all_markers():
     # return ReviewEntity.find_all()
     return [
-        { "id": 2000, "lat": 50.19621, "lng": 23.88737 },
-        { "id": 2500, "lat": 49.91406, "lng": 27.30412 },
+        {"id": 2000, "lat": 50.19621, "lng": 23.88737},
+        {"id": 2500, "lat": 49.91406, "lng": 27.30412},
     ]
 
 
@@ -49,14 +48,67 @@ def marker_detail(marker_id: str):
             "url": "http://localhost:8000/static/test_2.jpg"
         }],
         "statuses": [{
-            "id": "whatever",
+            "id": "123",
             "type": "building",
-            "statusKey": "stable",
-            "safetyLevel": 3,
-            "distance": "whatever",
-            "modifiedDate": datetime.datetime.utcnow(),
-            "description": "b"
-        }]
+            "statusKey": "intact",
+            "safetyLevel": True,
+            "distance": "",
+            "modifiedDate": "2022-09-09T16:38:20.777994",
+            "description":
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit interdum hendrerit ex "
+                "vitae sodales.",
+        },
+            {
+                "id": "314324",
+                "type": "electricity",
+                "statusKey": "stable",
+                "safetyLevel": True,
+                "distance": "",
+                "modifiedDate": "2022-09-09T16:38:20.777994",
+                "description": ""
+            },
+            {
+                "id": "whatever",
+                "type": "road",
+                "statusKey": "stable",
+                "safetyLevel": True,
+                "distance": "",
+                "modifiedDate": "2022-09-09T16:38:20.777994",
+                "description":
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit interdum hendrerit "
+                    "ex vitae sodales.",
+            },
+            {
+                "id": "536534",
+                "type": "water",
+                "statusKey": "unstable",
+                "safetyLevel": False,
+                "distance": "",
+                "modifiedDate": "2022-09-09T16:38:20.777994",
+                "description":
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus interdum "
+                    "hendrerit ex vitae sodales. Donec id leo ipsum. Phasellus volutpat aliquet "
+                    "mauris, et blandit nulla laoreet vitae. Quisque ante dui, porta eu felis "
+                    "nec, scelerisque pharetra turpis."
+            },
+            {
+                "id": "5456524",
+                "type": "petrol",
+                "statusKey": "closed",
+                "safetyLevel": False,
+                "distance": "0.8km",
+                "modifiedDate": "2022-09-09T16:38:20.777994",
+                "description": ""
+            },
+            {
+                "id": "5456524",
+                "type": "medical",
+                "statusKey": "open",
+                "safetyLevel": True,
+                "distance": "1.2km",
+                "modifiedDate": "2022-09-09T16:38:20.777994",
+                "description": ""
+            }, ]
     }
 
 
