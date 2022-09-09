@@ -62,6 +62,7 @@ CREATE TABLE dim_db.events (
 );
 
 CREATE TABLE dim_db.images (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
 	marker_id INTEGER NOT NULL,
 	image_ref VARCHAR(500) NOT NULL,
 	UNIQUE(image_ref),
