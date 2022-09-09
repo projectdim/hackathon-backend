@@ -1,4 +1,4 @@
-from .connection import conn,schema
+from app.support.database.connection import conn, schema
 import psycopg2
 import psycopg2.extras
 

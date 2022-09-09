@@ -1,7 +1,7 @@
 CREATE SCHEMA dim_db;
 
-CREATE TABLE dim_db.markers (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+CREATE TABLE dim_db.reviews (
+	id SERIAL PRIMARY KEY,
 	ts TIMESTAMP NOT NULL,
 	latitude NUMERIC(7) NOT NULL,
 	longitude NUMERIC(7) NOT NULL,
@@ -31,9 +31,9 @@ CREATE TABLE dim_db.markers (
 );
 
 CREATE TABLE dim_db.events (
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id SERIAL PRIMARY KEY,
 	ts TIMESTAMP NOT NULL,
-	marker_id INTEGER,
+	review_id INTEGER,
 	city VARCHAR(32),
 	street VARCHAR(128),
 	zipcode VARCHAR(6),
@@ -58,22 +58,14 @@ CREATE TABLE dim_db.events (
 	comment TEXT,
 	status VARCHAR(32),
 	type VARCHAR(10),
-	FOREIGN KEY (marker_id) REFERENCES reviews (id)
+	FOREIGN KEY (review_id) REFERENCES reviews (id)
 );
 
 CREATE TABLE dim_db.images (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-	marker_id INTEGER NOT NULL,
+	review_id INTEGER NOT NULL,
 	image_ref VARCHAR(500) NOT NULL,
 	UNIQUE(image_ref),
-	FOREIGN KEY (marker_id) REFERENCES reviews (id)
-);
-
-CREATE TABLE dim_db.contacts (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    label VARCHAR(255) NOT NULL,
-    phone VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL
+	FOREIGN KEY (review_id) REFERENCES reviews (id)
 );
 
 
