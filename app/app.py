@@ -5,7 +5,10 @@ from app.routers.markers import router
 
 app = FastAPI()
 
-app.mount("/", router)
+app.include_router(
+    router,
+)
+
 
 @app.get("/")
 def hello():

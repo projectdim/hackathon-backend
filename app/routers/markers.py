@@ -14,13 +14,6 @@ class Marker(BaseModel):
 @router.get("/", response_model=List[Marker])
 def get_all_markers():
     return [
-        {
-            "id": 2000,
-            "lat": 3000,
-            "lng": 221324
-        }, {
-            "id": 2500,
-            "lat": 3400,
-            "lng": 221324
-        },
+        { "id": 2000, "lat": 50.19621, "lng": 23.88737 }, 
+        { "id": 2500, "lat": 49.91406, "lng": 27.30412 },
     ]
