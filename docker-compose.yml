@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  backend_app:
+    image: dim/backend:latest
+    ports:
+      - '5001:5000'
+    volumes:
+      - ./:/app
