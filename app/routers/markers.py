@@ -1,17 +1,20 @@
+from typing import List
+
 from fastapi import APIRouter
+from pydantic import BaseModel
 
 from app.routers.schemas import Marker
 
 router = APIRouter(prefix="/markers")
 
 
-class Marker(BaseModel):
+class Pin(BaseModel):
     id: str
     lat: float
     lng: float
 
 
-@router.get("/", response_model=List[Marker])
+@router.get("/", response_model=List[Pin])
 def get_all_markers():
     return [
         {
