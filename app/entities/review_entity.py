@@ -1,4 +1,4 @@
-from .base_entity import BaseEntity
+from app.entities.base_entity import BaseEntity
 
 
 class ReviewEntity(BaseEntity):

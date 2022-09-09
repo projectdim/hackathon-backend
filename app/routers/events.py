@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
-from ..entities.event_entity import EventEntity
+from app.entities.event_entity import EventEntity
 
 events_router = APIRouter(prefix="/events")
 

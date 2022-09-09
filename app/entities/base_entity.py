@@ -1,4 +1,4 @@
-from ..support.database.db import Database
+from app.support.database.db import Database
 
 
 def to_string(item):
